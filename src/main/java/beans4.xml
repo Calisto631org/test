@@ -1,0 +1,105 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+						http://www.springframework.org/schema/util
+						http://www.springframework.org/schema/util/spring-util-2.5.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+<!-- 	<bean id="laguna" class="fr.perso.spring.chap4.PersonnageSynergiseFactoryBean"> -->
+<!-- 		<property name="personnage"> -->
+<!-- 			<bean class="fr.perso.spring.chap4.Laguna"> -->
+<!-- 				<constructor-arg value="shooter"/> -->
+<!-- 				<constructor-arg value="Laguna"/> -->
+<!-- 				<constructor-arg value="8"/> -->
+<!-- 			</bean> -->
+<!-- 		</property> -->
+<!-- 		<property name="synergie" value="true"/> -->
+<!-- 	</bean> -->
+
+<!-- 	<bean id="cecil" class="fr.perso.spring.chap4.PersonnageSynergiseFactoryBean"> -->
+<!-- 		<property name="personnage"> -->
+<!-- 			<bean class="fr.perso.spring.chap4.Cecil"> -->
+<!-- 				<constructor-arg value="hybride"/> -->
+<!-- 				<constructor-arg value="Cecil"/> -->
+<!-- 				<constructor-arg value="4"/> -->
+<!-- 			</bean> -->
+<!-- 		</property> -->
+<!-- 		<property name="synergie" value="false"/> -->
+<!-- 	</bean> -->
+
+<!-- 	<util:constant id="cecil" static-field="fr.perso.spring.chap4.Personnage.CECIL"/> -->
+<!-- 	<util:constant id="laguna" static-field="fr.perso.spring.chap4.Personnage.LAGUNA"/> -->
+
+<!-- 	<bean id="personnageRanking" class="fr.perso.spring.chap4.PersonnageRanking"> -->
+<!-- 		<property name="bestPersonnage"> -->
+<!-- 			<bean class="fr.perso.spring.chap4.Laguna"> -->
+<!-- 				<property name="classe" value="shooter"></property> -->
+<!-- 				<property name="nom" value="Laguna"></property> -->
+<!-- 				<property name="royaume" value="8"></property> -->
+<!-- 			</bean> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+<!-- 	<util:property-path id="bestPersonnage" path="personnageRanking.bestPersonnage"/> -->
+	
+	<!-- <bean id="personnageCreator" class="fr.perso.spring.chap4.PersonnageCreator"> -->
+	<!-- <property name="persos"> -->
+	<!-- <map> -->
+	<!-- <entry key="laguna"> -->
+	<!-- <bean class="fr.perso.spring.chap4.Laguna"> -->
+	<!-- <property name="classe" value="shooter"/> -->
+	<!-- <property name="nom" value="Laguna"/> -->
+	<!-- <property name="royaume" value="8"></property> -->
+	<!-- </bean> -->
+	<!-- </entry> -->
+	<!-- <entry key="cecil"> -->
+	<!-- <bean class="fr.perso.spring.chap4.Cecil"> -->
+	<!-- <property name="classe" value="hybride"/> -->
+	<!-- <property name="nom" value="Cecil"/> -->
+	<!-- <property name="royaume" value="4"></property> -->
+	<!-- </bean> -->
+	<!-- </entry> -->
+	<!-- </map> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="cecil" factory-bean="personnageCreator" factory-method="createPersonnage"> -->
+	<!-- <constructor-arg value="cecil"/> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="laguna" factory-bean="personnageCreator" factory-method="createPersonnage"> -->
+	<!-- <constructor-arg value="laguna"/> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="laguna" class="fr.perso.spring.chap4.Laguna"> -->
+	<!-- <property name="classe" value="Shooter"></property> -->
+	<!-- <property name="nom" value="Laguna"></property> -->
+	<!-- <property name="epoque" value="passé"></property> -->
+	<!-- <property name="royaume" value="8"></property> -->
+	<!-- </bean> -->
+
+	<bean id="laguna" class="fr.perso.spring.chap4.Laguna">
+		<property name="nom" value="Laguna"></property>
+		<property name="classe" value="Shooter"></property>
+		<property name="royaume" value="8"></property>
+	</bean>
+
+	<bean id="pecil" class="fr.perso.spring.chap4.Cecil">
+		<property name="nom" value="Cecil"></property>
+		<property name="classe" value="Paladin"></property>
+		<property name="royaume" value="4"></property>
+	</bean>
+
+	<bean id="decil" class="fr.perso.spring.chap4.Cecil">
+		<property name="nom" value="Cecil"></property>
+		<property name="classe" value="Chevalier Noir"></property>
+		<property name="royaume" value="4"></property>
+	</bean>
+
+	<bean id="equipe" class="fr.perso.spring.chap4.Equipe" scope="prototype"/>
+
+
+</beans>

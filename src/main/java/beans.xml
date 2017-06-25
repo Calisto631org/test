@@ -1,0 +1,124 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+						http://www.springframework.org/schema/util
+						http://www.springframework.org/schema/util/spring-util-2.5.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:annotation-config/>
+
+	<context:component-scan base-package="fr.perso.spring">
+		<context:include-filter type="regex"
+			expression="fr\.perso\.spring\..*DAO.*"/>
+		<context:include-filter type="regex"
+			expression="fr\.perso\.spring\..*Service.*"/>
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+
+	<!-- <bean id="helloWorld" class="fr.perso.spring.chap2.HelloWorld"> -->
+	<!-- <property name="message" value="I'm Cloud Strife"/> -->
+	<!-- <property name="personnages"> -->
+	<!-- <list> -->
+	<!-- <ref local="Cloud"/> -->
+	<!-- <ref local="Cecil"/> -->
+	<!-- </list> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="Cloud" class="fr.perso.spring.chap2.Personnage"> -->
+	<!-- <property name="nom" value="Cloud Strife"></property> -->
+	<!-- <property name="royaume" value="VII"></property> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="Cecil" class="fr.perso.spring.chap2.Personnage"> -->
+	<!-- <property name="nom" value="Cecil Harvey"></property> -->
+	<!-- <property name="royaume" value="IV"></property> -->
+	<!-- </bean> -->
+
+	<bean id="SeeD" class="fr.perso.spring.chap3.Guerrier">
+		<property name="categorieByLeader" value="Quistis"></property>
+	</bean>
+
+	<bean id="Rebelle" class="fr.perso.spring.chap3.Guerrier">
+		<property name="categorieByLeader" value="Ashe"></property>
+	</bean>
+
+	<bean id="Prince" class="fr.perso.spring.chap3.Guerrier">
+		<property name="categorieByLeader" value="Noctis"></property>
+	</bean>
+
+	<bean id="Sorciere" class="fr.perso.spring.chap3.Mage">
+		<property name="categorieByLeader" value="Bibi"></property>
+	</bean>
+
+	<!-- <bean id="classe" class="fr.perso.spring.chap3.Mage"> -->
+	<!-- <property name="categorieByLeader" value="Bib"></property> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="MageBlanc" class="fr.perso.spring.chap3.Mage"> -->
+	<!-- <property name="categorieByLeader" value="Minwu"></property> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="Squall" class="fr.perso.spring.chap3.Personnage" -->
+	<!-- p:royaume="8" p:classe-ref="SeeD"/> -->
+
+	<bean id="Royaume11" abstract="true">
+		<property name="royaume" value="11"/>
+	</bean>
+
+	<!-- <bean id="Shantotto" class="fr.perso.spring.chap3.Personnage" parent="Royaume11"> -->
+	<!-- <property name="classe" ref="Sorciere"/> -->
+	<!-- </bean> -->
+
+	<util:list id="classes11">
+		<ref bean="Prince"/>
+		<ref bean="Rebelle"/>
+	</util:list>
+
+
+	<bean id="Prishe" class="fr.perso.spring.chap3.Personnage">
+		<property name="royaume" value="11"/>
+		<property name="classes">
+			<ref local="classes11"/>
+		</property>
+	</bean>
+
+	<!-- <bean id="Couronne" class="fr.perso.spring.chap3.Objet" parent="Royaume11"> -->
+	<!-- <property name="name" value="couronne"/> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="Firion" class="fr.perso.spring.chap3.Personnage"> -->
+	<!-- <constructor-arg ref="Rebelle"/> -->
+	<!-- <constructor-arg value="2"/> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="Lenna" class="fr.perso.spring.chap3.Personnage"> -->
+	<!-- <property name="royaume" value="5"/> -->
+	<!-- <property name="classes"> -->
+	<!-- <bean id="MageBlanc" class="fr.perso.spring.chap3.Mage"> -->
+	<!-- <property name="categorieByLeader" value="Minwu"></property> -->
+	<!-- </bean> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+	<bean
+		class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor">
+		<property name="requiredAnnotationType">
+			<value>fr.perso.spring.chap3.Mandatory</value>
+		</property>
+	</bean>
+
+	<!-- <bean id="Vaan" class="fr.perso.spring.chap3.Personnage" p:classe:categorie 
+		="Pirate du ciel" -->
+	<!-- p:royaume="12"/> -->
+
+	<!-- <bean id="persoService" class="fr.perso.spring.chap3.PersoService" -->
+	<!-- autowire="byType"/> -->
+
+	<!-- <bean id="persoDAO" class="fr.perso.spring.chap3.PersoDAOImpl"/> -->
+
+</beans>
