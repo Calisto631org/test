@@ -102,4 +102,5 @@
 	<bean id="equipe" class="fr.perso.spring.chap4.Equipe" scope="prototype"/>
 
 
+
 </beans>
