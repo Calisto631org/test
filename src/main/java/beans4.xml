@@ -92,7 +92,7 @@
 		<property name="classe" value="Paladin"></property>
 		<property name="royaume" value="4"></property>
 	</bean>
-
+ 
 	<bean id="decil" class="fr.perso.spring.chap4.Cecil">
 		<property name="nom" value="Cecil"></property>
 		<property name="classe" value="Chevalier Noir"></property>
